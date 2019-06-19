@@ -5,16 +5,27 @@ class Counter extends Component {
         tags: []
     }
 
-    renderTags(){
-        if (this.state.tags.length === 0) return <p>No list found</p>
-        return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
+    // constructor(){
+    //     super();
+    //     this.handleIncrement = this.handleIncrement.bind(this);
+    // }
+    
+    handleIncrement = ( product) => {
+        console.log('pro', product)
+       // this.state.count = this.state.count + 1
+      //console.log(this)
+      this.setState({count: this.state.count + 1})
     }
+
+    // doHandleIncrement = () => {
+    //     this.handleIncrement({ id : 1})
+    // }
 
     render() { 
         return (
         <div>  
-            {this.state.tags.length === 0 && 'please create a tag'}
-            {this.renderTags()}
+            <button onClick={() => {this.handleIncrement({ id : 1})}}>Increment</button>
+            <p>{this.state.count}</p>
         </div>   
         );
     }
